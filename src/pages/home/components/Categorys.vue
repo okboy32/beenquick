@@ -1,5 +1,30 @@
 <template>
-  <div class="categorys">categorys</div>
+    <div class="categorys">
+      <div class="title">
+        <span class="redblock"></span>
+        <p style="color:#eb1d2e">休闲零食</p>
+        <div class="btn-more">更多<span class="iconfont icon-arrow-r">&#xe9d8;</span></div>
+      </div>
+    <img class="categorys-img" src="http://img01.bqstatic.com//upload/activity/2017112711015136.png@90Q.png"/>
+    <div class="categoty-products">
+      <div class="product border-right">
+        <img class="product-img" src="http://img01.bqstatic.com/upload/goods/000/001/0002/0000010002.jpg@200w_200h_90Q" />
+        <div class="product-name">
+          口水娃香辣味口水鱼
+        </div>
+        <div class="production-promation"></div>
+        <div class="product-operations">
+          <div class="product-price">
+            <span class="specifications">15g</span>
+            <span class="price">￥ 1.5</span>
+          </div>
+          <div class="add-btn iconfont">
+            &#xe63c;
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -11,6 +36,65 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+@import '~styles/mixins.styl'
+.border-right
+  &:before
+    border-color #aaaaaa
+.categorys
+  width 100%
+  height 0
+  padding .1rem
+  padding-bottom 100%
+  .title
+    width 100%
+    font-weight bold
+    display flex
+    line-height .8rem
+    font-size 0.36rem
+    .redblock
+      margin .2rem .1rem
+      width 2%
+      background #eb1d2e
+      float left
+    .btn-more
+      position absolute
+      right 0
+      padding 0 .2rem
+      color #99999
+      font-size .32rem
+      font-weight normal
+      .icon-arrow-r
+        padding-left .2rem
+        font-size .36rem
+  .categorys-img
+    width 100%
+  .product
+    width 33%
+    padding-bottom 66%
+    padding-top .2rem
+    .product-img
+      width 100%
+    .product-name
+      padding .2rem 0
+      font-size .32rem
+      ellips()
+    .production-promation
+      padding-bottom .4rem
+    .product-operations
+      width 100%
+      font-size .32rem
+      .specifications
+        width 100%
+        float left
+        margin .25rem 0
+      .price
+        float left
+        color red
+    .add-btn
+      width 50%
+      height 50%
+      color red
+      font-size .8rem
+      float right
 </style>
