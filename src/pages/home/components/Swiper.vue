@@ -41,7 +41,7 @@ export default {
 <style lang="stylus" scoped>
   .homeswiper
     width 100%
-    padding-bottom 48%
+    padding-bottom 550%
     height 0
     background #ccc
     .img
