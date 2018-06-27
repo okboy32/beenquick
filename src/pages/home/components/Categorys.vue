@@ -23,6 +23,38 @@
           </div>
         </div>
       </div>
+      <div class="product border-right">
+        <img class="product-img" src="http://img01.bqstatic.com/upload/goods/000/001/0002/0000010002.jpg@200w_200h_90Q" />
+        <div class="product-name">
+          口水娃香辣味口水鱼
+        </div>
+        <div class="production-promation"></div>
+        <div class="product-operations">
+          <div class="product-price">
+            <span class="specifications">15g</span>
+            <span class="price">￥ 1.5</span>
+          </div>
+          <div class="add-btn iconfont">
+            &#xe63c;
+          </div>
+        </div>
+      </div>
+      <div class="product border-right">
+        <img class="product-img" src="http://img01.bqstatic.com/upload/goods/000/001/0002/0000010002.jpg@200w_200h_90Q" />
+        <div class="product-name">
+          口水娃香辣味口水鱼
+        </div>
+        <div class="production-promation"></div>
+        <div class="product-operations">
+          <div class="product-price">
+            <span class="specifications">15g</span>
+            <span class="price">￥ 1.5</span>
+          </div>
+          <div class="add-btn iconfont">
+            &#xe63c;
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -44,7 +76,6 @@ export default {
 .categorys
   width 100%
   height 0
-  padding .1rem
   padding-bottom 100%
   .title
     width 100%
@@ -70,31 +101,38 @@ export default {
   .categorys-img
     width 100%
   .product
+    float left
     width 33%
-    padding-bottom 66%
+    height 0
+    padding-bottom 60%
     padding-top .2rem
     .product-img
       width 100%
     .product-name
-      padding .2rem 0
+      padding .2rem 0.1rem
       font-size .32rem
       ellips()
     .production-promation
       padding-bottom .4rem
     .product-operations
+      position relative
       width 100%
       font-size .32rem
-      .specifications
-        width 100%
-        float left
-        margin .25rem 0
-      .price
-        float left
+      .add-btn
+        position absolute
+        top 0
+        bottom 0
+        right .3rem
+        font-size .8rem
+        line-height 1.6rem
         color red
-    .add-btn
-      width 50%
-      height 50%
-      color red
-      font-size .8rem
-      float right
+      .product-price
+        width 50%
+        .specifications
+          width 50%
+          float left
+          margin .25rem 0
+        .price
+          float left
+          color red
 </style>

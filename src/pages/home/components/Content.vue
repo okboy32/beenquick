@@ -4,6 +4,7 @@
       <div>
           <home-swiper></home-swiper>
           <home-categorys></home-categorys>
+          <home-categorys></home-categorys>
       </div>
     </div>
   </div>
@@ -27,6 +28,7 @@ export default {
 
 <style lang="stylus" scoped>
 .contentier
+  overflow hidden
   z-index -1
   position absolute
   top 1.2rem
