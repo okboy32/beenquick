@@ -1,5 +1,5 @@
 <template>
-    <div class="categorys">
+    <div class="categorys border-bottom">
       <div class="title">
         <span class="redblock"></span>
         <p style="color:#eb1d2e">休闲零食</p>
@@ -73,10 +73,13 @@ export default {
 .border-right
   &:before
     border-color #aaaaaa
+.border-bottom
+  &:before
+    border solid .1rem #cacaca
 .categorys
   width 100%
   height 0
-  padding-bottom 100%
+  padding-bottom 105%
   .title
     width 100%
     font-weight bold
@@ -135,4 +138,8 @@ export default {
         .price
           float left
           color red
+  .category-footer
+    background #cacaca
+    width 100%
+    height 0.5rem
 </style>

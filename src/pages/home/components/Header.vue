@@ -3,7 +3,7 @@
     <div class="content">
       <div class="address">上海市政府 商铺</div>
     </div>
-    <div class="header-icon"><span class="iconfont search-icon">&#xe627;</span><div class="search">搜索</div></div>
+    <router-link tag="div" class="header-icon" to="/search"><span class="iconfont search-icon">&#xe627;</span><div class="search">搜索</div></router-link>
   </div>
 </template>
 
@@ -14,9 +14,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~styles/varibles.styl'
 .header
-  background #ffd600
-  height 1.2rem
+  background $headerBgColor
+  height $headerHeight
   .content
     height 1.2rem
     text-align center

@@ -17,7 +17,8 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
+        loop: true,
+        autoplay: 3000
       },
       swiper_list: [{
         'trackid': '21870',
@@ -39,10 +40,12 @@ export default {
 
 <style lang="stylus" scoped>
   .homeswiper
+    overflow hidden
     width 100%
-    padding-bottom 46%
+    padding-bottom 43%
     height 0
     background #ccc
     .img
+      z-index -1
       width 100%
 </style>
