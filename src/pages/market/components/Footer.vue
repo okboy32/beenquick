@@ -21,10 +21,10 @@ export default {
   data () {
     return {
       homeBackground: {
-        backgroundImage: 'url(' + require('../../../assets/img/home_selected.png') + ')'
+        backgroundImage: 'url(' + require('../../../assets/img/home.png') + ')'
       },
       marketBackground: {
-        backgroundImage: 'url(' + require('../../../assets/img/market.png') + ')'
+        backgroundImage: 'url(' + require('../../../assets/img/market_selected.png') + ')'
       },
       shopcartBackground: {
         backgroundImage: 'url(' + require('../../../assets/img/shopcart.png') + ')'

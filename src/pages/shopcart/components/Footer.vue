@@ -21,13 +21,13 @@ export default {
   data () {
     return {
       homeBackground: {
-        backgroundImage: 'url(' + require('../../../assets/img/home_selected.png') + ')'
+        backgroundImage: 'url(' + require('../../../assets/img/home.png') + ')'
       },
       marketBackground: {
         backgroundImage: 'url(' + require('../../../assets/img/market.png') + ')'
       },
       shopcartBackground: {
-        backgroundImage: 'url(' + require('../../../assets/img/shopcart.png') + ')'
+        backgroundImage: 'url(' + require('../../../assets/img/shopcart_selected.png') + ')'
       },
       mineBackground: {
         backgroundImage: 'url(' + require('../../../assets/img/mine.png') + ')'
