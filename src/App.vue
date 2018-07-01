@@ -12,5 +12,6 @@ export default {
 
 <style>
 #app {
+  background: #efefef;
 }
 </style>

@@ -80,6 +80,7 @@ export default {
   width 100%
   height 0
   padding-bottom 105%
+  background white
   .title
     width 100%
     font-weight bold
