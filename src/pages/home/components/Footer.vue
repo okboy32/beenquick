@@ -45,7 +45,7 @@ export default {
   left 0
   right 0
   height 1.2rem
-  background rgba(200,200,200,.1)
+  background #f6f6f6
   width 100%
   .nav-item
     background no-repeat center top

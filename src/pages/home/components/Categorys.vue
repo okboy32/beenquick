@@ -139,8 +139,4 @@ export default {
         .price
           float left
           color red
-  .category-footer
-    background #cacaca
-    width 100%
-    height 0.5rem
 </style>

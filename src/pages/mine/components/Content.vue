@@ -3,7 +3,7 @@
       <div class="contentier">
         <mine-order :order_type_list="order_type_list"></mine-order>
         <mine-table :item_list="function_list"></mine-table>
-        <button class="logoutBtn">推出当前帐号</button>
+        <button class="logoutBtn" @click="logout">推出当前帐号</button>
       </div>
     </div>
 </template>
@@ -90,6 +90,11 @@ export default {
           backgroundSize: 'auto 25%'
         }
       }]
+    }
+  },
+  methods: {
+    logout: function () {
+      this.$router.push({ name: 'Login' })
     }
   },
   mounted () {

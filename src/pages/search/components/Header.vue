@@ -3,15 +3,29 @@
       <router-link to="/" class="back-icon iconfont">&#xe637;</router-link>
       <div class="search-input">
         <span class="iconfont search-icon">&#xe627;</span>
-        <input class="input" placeholder="请输入商品名称">
+        <input class="input"
+               placeholder="请输入商品名称"
+               v-model="searchKey"
+        >
       </div>
-      <div class="search-btn" >搜索</div>
+      <div class="search-btn" @click="handleClickSearch">搜索</div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'Header'
+  name: 'Header',
+  data () {
+    return {
+      keyword: ''
+    }
+  },
+  methods: {
+    handleClickSearch: function () {
+      axios.get('')
+    }
+  }
 }
 </script>
 

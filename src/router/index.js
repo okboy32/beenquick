@@ -5,6 +5,7 @@ import Shopcart from '@/pages/shopcart/Shopcart'
 import Market from '@/pages/market/Market'
 import Mine from '@/pages/mine/Mine'
 import Search from '@/pages/search/search'
+import Login from '@/pages/login/Login'
 
 Vue.use(Router)
 
@@ -30,6 +31,10 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
+    }, {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })

@@ -16,6 +16,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 .header
+  z-index 99
   background $headerBgColor
   height $headerHeight
   .content

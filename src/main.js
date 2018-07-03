@@ -9,6 +9,7 @@ import 'swiper/dist/css/swiper.css'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
+import store from './store'
 
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 Vue.config.productionTip = false
@@ -17,6 +18,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
