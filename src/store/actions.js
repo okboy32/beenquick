@@ -7,5 +7,8 @@ export default {
   },
   changeCurrentId: function (ctx, id) {
     ctx.commit('changeCurrentId', id)
+  },
+  changeSearchHistory: function (ctx, keyword) {
+    ctx.commit('changeSearchHistory', keyword)
   }
 }

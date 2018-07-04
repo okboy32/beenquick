@@ -13,5 +13,19 @@ export default {
   },
   changeCurrentId: function (state, id) {
     state.currentid = id
+  },
+  changeSearchHistory: function (state, keyword) {
+    const index = state.searchHisory.indexOf(keyword)
+    if (index !== -1) {
+      state.searchHisory.splice(index, keyword)
+    }
+    const temp = [keyword]
+    for (var i = 0; i < state.searchHisory.length; i++) {
+      if (state.searchHisory[i] !== keyword) {
+        temp.push(state.searchHisory[i])
+      }
+    }
+    state.searchHisory = temp
+    localStorage.searchHisory = temp
   }
 }

@@ -11,7 +11,7 @@
         </div>
         <div class="type">历史记录</div>
         <div class="history-list">
-          <div class="item">矿泉水</div>
+          <div class="item" v-for="item in searchHisory" :key="item">{{item}}</div>
         </div>
         <button class="clearBtn" >清除历史记录</button>
       </div>
@@ -20,13 +20,17 @@
 
 <script>
 export default {
-  name: 'Content'
+  name: 'Content',
+  props: {
+    searchHisory: Array
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 .content
+  z-index -2
   position absolute
   top $headerHeight
   bottom 0

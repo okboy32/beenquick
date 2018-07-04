@@ -41,6 +41,7 @@ export default {
  &:after
   border solid 1px #acacac
 .productslist
+  overflow hidden
   z-index -1
   position absolute
   top $headerHeight

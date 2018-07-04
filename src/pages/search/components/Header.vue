@@ -5,7 +5,7 @@
         <span class="iconfont search-icon">&#xe627;</span>
         <input class="input"
                placeholder="请输入商品名称"
-               v-model="searchKey"
+               v-model="keywords"
         >
       </div>
       <div class="search-btn" @click="handleClickSearch">搜索</div>
@@ -13,17 +13,18 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'Header',
   data () {
     return {
-      keyword: ''
+      keywords: ''
     }
   },
   methods: {
     handleClickSearch: function () {
-      axios.get('')
+      if (this.keywords !== '') {
+        this.$emit('search', this.keywords)
+      }
     }
   }
 }
@@ -32,6 +33,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 .header
+  z-index 99
   display flex
   height $headerHeight
   background #f9fafd
