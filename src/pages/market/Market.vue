@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getCategorys () {
-      axios.get('http://10.11.51.50:8000/category/').then((reponse) => {
+      axios.get('http://localhost:8000/category/').then((reponse) => {
         this.categorys = reponse.data
       }).catch((error) => {
         console.info(error)

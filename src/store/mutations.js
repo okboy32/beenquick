@@ -1,3 +1,5 @@
+import cookie from '../../static/js/cookie'
+
 export default {
   changeProducts (state, products) {
     const id = state.currentid
@@ -27,5 +29,16 @@ export default {
     }
     state.searchHisory = temp
     localStorage.searchHisory = temp
+  },
+  changeShopCart: function (state, product) {
+    const id = product.product
+    const pcount = product.count
+    state.shopcart[id] = pcount
+    localStorage.shopcart = JSON.stringify(state.shopcart)
+  },
+  setUserInfo: function (state) {
+    console.info('setUserInfo')
+    state.userInfo.token = cookie.getCookie('token')
+    console.info(state.userInfo.token)
   }
 }

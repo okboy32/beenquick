@@ -10,5 +10,12 @@ export default {
   },
   changeSearchHistory: function (ctx, keyword) {
     ctx.commit('changeSearchHistory', keyword)
+  },
+  changeShopCart: function (ctx, product) {
+    ctx.commit('changeShopCart', product)
+  },
+  setUserInfo: function (ctx) {
+    console.info('setUserInfo')
+    ctx.commit('setUserInfo')
   }
 }

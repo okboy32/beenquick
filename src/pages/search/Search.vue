@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     clicksearch: function (keywords) {
-      axios.get('http://10.11.51.50:8000/products/?search=' + keywords).then((response) => {
+      axios.get('http://localhost:8000/products/?search=' + keywords).then((response) => {
         console.info(response)
         this.search_list = response.data
         this.show = true

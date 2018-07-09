@@ -41,16 +41,17 @@ export default {
   },
   methods: {
     handleGetVerifyCode: function () {
-      axios.post('http://10.11.51.50:8000/codes/', {'mobile': this.mobile}).then((response) => {
+      axios.post('http://localhost:8000/codes/', {'mobile': this.mobile}).then((response) => {
         console.info(response)
       }).catch(function (error) {
         console.info(error)
       })
     },
     handleLogin: function () {
-      axios.post('http://10.11.51.50:8000/login/', {'username': this.mobile, 'password': this.code}).then((response) => {
+      axios.post('http://localhost:8000/login/', {'username': this.mobile, 'password': this.code}).then((response) => {
         cookie.setCookie('token', response.data.token, 7)
         console.info(response.data.token)
+        this.$store.commit('setUserInfo')
         this.$router.push({name: 'Home'})
       }).catch(function (error) {
         console.info(error)

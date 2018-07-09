@@ -6,8 +6,20 @@ try {
   }
 } catch (e) {}
 
+let shopcart = JSON.parse('{}')
+try {
+  if (localStorage.shopcart) {
+    console.info(localStorage.shopcart)
+    shopcart = JSON.parse(localStorage.shopcart)
+  }
+} catch (e) {
+  console.info(localStorage.shopcart)
+}
+
 export default {
   products: {},
   city: '',
-  searchHisory: defaultSearchHistory
+  searchHisory: defaultSearchHistory,
+  shopcart: shopcart,
+  userInfo: Object
 }

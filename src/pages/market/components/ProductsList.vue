@@ -1,7 +1,7 @@
 <template>
     <div class="productslist" ref="wrapper">
       <div class="scroll-wrapper">
-        <div class="product border-topbottom" v-for="(item,index) of products" :key="index">
+        <div class="product border-topbottom" v-for="(item,index) of products" :key="index" v-on:click="handleClick(item.id)">
           <div class="product-img-warp"><img class="product-img" :src="item.img" /></div>
           <div class="product-meta-warp">
             <div class="product-name product-mate">{{item.name}}</div>
@@ -27,8 +27,20 @@ export default {
   props: {
     products: Array
   },
+  methods: {
+    handleClick: function (id) {
+      this.$router.push({
+        name: 'Detail',
+        params: {
+          id: id
+        }
+      })
+    }
+  },
   mounted () {
-    this.scroll = new BScorll(this.$refs.wrapper)
+    this.scroll = new BScorll(this.$refs.wrapper, {
+      click: true
+    })
   }
 }
 </script>
@@ -52,12 +64,11 @@ export default {
   padding-top 1.04rem
   .scroll-wrapper
     z-index 0
-    padding-top 1.04rem
     .product
       position relative
       width 96%
       height 2.34rem
-      margin .12rem
+      margin 0 .12rem
       .product-img-warp
         float left
         width 2.1rem

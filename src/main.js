@@ -10,7 +10,14 @@ import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
 import store from './store'
+import Notification from './components/notification'
 
+// 全局加载resource拦截器
+import './axios/'
+import Axios from 'axios'
+Vue.prototype.$http = Axios
+
+Vue.use(Notification)
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 Vue.config.productionTip = false
 
