@@ -1,6 +1,7 @@
 # beenquick
 
 > A Vue.js project
+(手机端)
 预览: http://120.79.0.254/
 
 ## Build Setup
