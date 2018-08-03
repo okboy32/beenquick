@@ -1,7 +1,7 @@
 # beenquick
 
 > A Vue.js project
-预览: 120.79.0.254
+预览: http://120.79.0.254/
 
 ## Build Setup
 
