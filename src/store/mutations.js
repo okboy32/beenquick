@@ -11,7 +11,8 @@ export default {
     state.city = city
     try {
       localStorage.city = city
-    } catch (e) {}
+    } catch (e) {
+    }
   },
   changeCurrentId: function (state, id) {
     state.currentid = id
@@ -36,9 +37,32 @@ export default {
     state.shopcart[id] = pcount
     localStorage.shopcart = JSON.stringify(state.shopcart)
   },
+  setShopCart: function (state, shopcart) {
+    localStorage.shopcart = JSON.stringify(shopcart)
+    state.shopcart = shopcart
+    let totalCount = 0
+    for (var key in state.shopcart) {
+      totalCount += state.shopcart[key]
+    }
+    state.totalCount = totalCount
+  },
   setUserInfo: function (state) {
-    console.info('setUserInfo')
     state.userInfo.token = cookie.getCookie('token')
-    console.info(state.userInfo.token)
+    state.userInfo.uid = cookie.getCookie('uid')
+    state.userInfo.username = cookie.getCookie('username')
+    state.userInfo.level = cookie.getCookie('level')
+    state.userInfo.mobile = cookie.getCookie('mobile')
+    console.info(state.userInfo)
+  },
+  getTotalcount: function (state) {
+    let totalCount = 0
+    for (var key in state.shopcart) {
+      totalCount += state.shopcart[key]
+    }
+    state.totalCount = totalCount
+  },
+  clearHistory: function (state) {
+    localStorage.searchHisory = []
+    state.searchHisory = []
   }
 }

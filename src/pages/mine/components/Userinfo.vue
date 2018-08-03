@@ -1,8 +1,8 @@
 <template>
     <div class="mine_user_info">
       <div class="user">
-        <div class="user-phone">18915779180</div>
-        <div class="user-level">V8</div>
+        <div class="user-name">{{this.user.username}}</div>
+        <div class="user-level">V{{this.user.level}}</div>
         <div class="tap-action"></div>
       </div>
     </div>
@@ -10,7 +10,8 @@
 
 <script>
 export default {
-  name: 'MineUserinfo'
+  name: 'MineUserinfo',
+  props: ['user']
 }
 </script>
 
@@ -25,7 +26,7 @@ export default {
     background-size auto 1.54rem
     width 100%
     height 1.95rem
-    .user-phone
+    .user-name
       margin-top .58rem
       float right
       width 72%

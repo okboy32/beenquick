@@ -8,6 +8,7 @@
         </router-link>
         <router-link tag="div"  :style="shopcartBackground" class="nav-item" to="/shopcart">
           <span class="name">购物车</span>
+          <span class="count" v-if="totalCount">{{this.totalCount}}</span>
         </router-link>
         <router-link tag="div"  :style="mineBackground" class="nav-item" to="mine">
           <span class="name">我的</span>
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Footer',
   data () {
@@ -33,6 +35,9 @@ export default {
         backgroundImage: 'url(' + require('../../../assets/img/mine.png') + ')'
       }
     }
+  },
+  computed: {
+    ...mapState(['totalCount'])
   }
 }
 </script>
@@ -48,6 +53,7 @@ export default {
   background #f6f6f6
   width 100%
   .nav-item
+    position relative
     background no-repeat center top
     background-size .56rem .56rem
     float left
@@ -56,5 +62,15 @@ export default {
     margin-top .2rem
     line-height 1.5rem
     color #555
-
+    .count
+      position absolute
+      top -.1rem
+      right -.3rem
+      width .4rem
+      height .4rem
+      border-radius .2rem
+      line-height .4rem
+      text-align center
+      color white
+      background #f40
 </style>

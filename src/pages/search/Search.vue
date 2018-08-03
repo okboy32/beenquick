@@ -4,7 +4,7 @@
         @search="clicksearch"
       >
       </search-header>
-      <search-content :searchHisory="searchHisory"></search-content>
+      <search-content :searchHisory="searchHisory" @clickItem="clicksearch"></search-content>
       <search-lisr v-if="show" :search_list="search_list"></search-lisr>
     </div>
 </template>
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     clicksearch: function (keywords) {
-      axios.get('http://localhost:8000/products/?search=' + keywords).then((response) => {
+      axios.get('http://120.79.0.254/api/products/?search=' + keywords).then((response) => {
         console.info(response)
         this.search_list = response.data
         this.show = true

@@ -13,9 +13,18 @@ export default {
   },
   changeShopCart: function (ctx, product) {
     ctx.commit('changeShopCart', product)
+    ctx.commit('getTotalcount')
   },
   setUserInfo: function (ctx) {
-    console.info('setUserInfo')
     ctx.commit('setUserInfo')
+  },
+  clearHistory: function (ctx) {
+    ctx.commit('clearHistory')
+  },
+  setShopCart: function (ctx, shopcart) {
+    ctx.commit('setShopCart', shopcart)
+  },
+  getTotalcount: function (ctx) {
+    ctx.commit('getTotalcount')
   }
 }

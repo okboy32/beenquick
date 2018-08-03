@@ -7,6 +7,8 @@ import Mine from '@/pages/mine/Mine'
 import Search from '@/pages/search/search'
 import Login from '@/pages/login/Login'
 import Detail from '@/pages/detail/Detail'
+import Order from '@/pages/order/Order'
+import OrderDetail from '@/pages/order_detail/OrderDetail'
 import cookie from '../../static/js/cookie'
 import store from '../store'
 
@@ -71,6 +73,24 @@ var router = new Router({
         title: '商品详情',
         need_log: false
       }
+    }, {
+      path: '/order',
+      props: true,
+      name: 'Order',
+      component: Order,
+      meta: {
+        title: '我的订单',
+        need_log: true
+      }
+    }, {
+      path: '/order_detail/:id',
+      props: true,
+      name: 'OrderDetail',
+      component: OrderDetail,
+      meta: {
+        title: '订单详情',
+        need_log: true
+      }
     }
   ]
 })
@@ -78,10 +98,8 @@ var router = new Router({
 // 进行路由判断
 router.beforeEach((to, from, next) => {
   var nextPath = cookie.getCookie('nextPath')
-  console.log(nextPath)
   if (to !== undefined) {
     if (to.meta.need_log) {
-      console.info(to.meta.need_log)
       if (!store.state.userInfo.token) {
         next({
           path: '/login'

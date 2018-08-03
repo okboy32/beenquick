@@ -10,7 +10,7 @@ import router from '../router'
 axios.interceptors.request.use(
   config => {
     if (store.state.userInfo.token) {
-      config.header.Authorization = `JWT ${store.state.userInfo.token}`
+      config.headers.Authorization = `JWT ${store.state.userInfo.token}`
     }
     return config
   },

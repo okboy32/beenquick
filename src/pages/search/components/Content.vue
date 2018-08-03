@@ -11,18 +11,29 @@
         </div>
         <div class="type">历史记录</div>
         <div class="history-list">
-          <div class="item" v-for="item in searchHisory" :key="item">{{item}}</div>
+          <div class="item" v-for="item in searchHisory" :key="item" @click="handleClickItem(item)">{{item}}</div>
         </div>
-        <button class="clearBtn" >清除历史记录</button>
+        <button class="clearBtn" @click="handleCilckClearHistory">清除历史记录</button>
       </div>
     </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'Content',
   props: {
     searchHisory: Array
+  },
+  methods: {
+    handleClickItem (item) {
+      this.$emit('clickItem', item)
+    },
+    handleCilckClearHistory () {
+      console.info('clear')
+      this.clearHistory()
+    },
+    ...mapActions(['clearHistory'])
   }
 }
 </script>

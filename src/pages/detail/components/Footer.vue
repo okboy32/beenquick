@@ -13,7 +13,8 @@
     </div>
     <div class="cart-btn-wrap">
     </div>
-    <div class="cart-btn"></div>
+    <div class="cart-btn" @click="handleCilckShopcart"></div>
+    <div class="count-icon" v-show="this.totalCount">{{this.totalCount}}</div>
   </div>
 </template>
 
@@ -23,23 +24,29 @@ import cookie from '../../../../static/js/cookie'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Footer',
-  props: ['id'],
+  props: ['id', 'isLogin'],
   data () {
     return {
       count: 0
     }
   },
   computed: {
-    ...mapState(['shopcart'])
+    ...mapState(['shopcart', 'totalCount'])
   },
   methods: {
+    handleCilckShopcart: function () {
+      this.$router.push({name: 'Shopcart'})
+    },
     handleClickSub: function () {
+      if (!this.isLogin) {
+        this.$router.push({name: 'Login'})
+        return
+      }
       if (this.count === 0) return
-      console.info('sub')
       const token = cookie.getCookie('token')
       this.count--
       this.changeShopCart({'product': this.id, 'count': this.count})
-      axios.post('http://localhost:8000/shopcart/', {
+      axios.post('http://120.79.0.254:8000/shopcart/', {
         'product': this.id,
         'count': '-1'
       },
@@ -54,11 +61,14 @@ export default {
       })
     },
     handleCilckAdd: function () {
-      console.info('add')
+      if (!this.isLogin) {
+        this.$router.push({name: 'Login'})
+        return
+      }
       const token = cookie.getCookie('token')
       this.count++
       this.changeShopCart({'product': this.id, 'count': this.count})
-      axios.post('http://localhost:8000/shopcart/', {
+      axios.post('http:/120.79.0.254/api/shopcart/', {
         'product': this.id,
         'count': '1'
       },
@@ -68,8 +78,6 @@ export default {
         }
       }
       ).then((response) => {
-        console.info('JWT ' + token)
-        console.info('JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InpsMiIsImV4cCI6MTUzMTY2MzA2MCwiZW1haWwiOiI4OTcxMDAxODdAcXEuY29tIn0.ZRcpuYSV9r2JfJZ8YjgZ23VGF1JeJfP7Fc749Cx302c')
         const data = response.data
         this.count = data.count
       })
@@ -168,5 +176,16 @@ export default {
   background #ffd600 url('../../../assets/img/detail_shopcart.png') no-repeat center center
   background-size 100%
   border-radius .7rem
-
+.count-icon
+  z-index 100
+  position absolute
+  background #ff4300
+  bottom 1.0rem
+  right .2rem
+  height .5rem
+  width .5rem
+  border-radius .25rem
+  color white
+  line-height .5rem
+  text-align center
 </style>

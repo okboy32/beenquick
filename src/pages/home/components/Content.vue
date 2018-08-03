@@ -32,7 +32,7 @@ export default {
   z-index -1
   position absolute
   top 1.2rem
-  bottom 0
+  bottom 1.2rem
   left 0
   rigth 0
   width 100%

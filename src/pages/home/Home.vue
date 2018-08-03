@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 import HomeHeader from './components/Header'
 import HomeContent from './components/Content'
 import HomeFooter from './components/Footer'

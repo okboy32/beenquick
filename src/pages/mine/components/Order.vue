@@ -1,13 +1,14 @@
 <template>
     <div class="order">
       <div class="myorder border-bottom">我的订单
-        <span class="myoeder-right">查看全部订单</span>
+        <span class="myoeder-right" @click="handleClickAllOrder">查看全部订单</span>
       </div>
       <div class="order-type">
         <div class="order-type-item"
              v-for="item of order_type_list"
              :style="item.styles"
-             :key ='item.name'
+             :key ='item.status'
+             @click="handleCilckOrderTypeItem(item.status)"
         >{{item.name}}</div>
       </div>
     </div>
@@ -18,8 +19,15 @@ export default {
   name: 'Order',
   props: {
     order_type_list: Array
+  },
+  methods: {
+    handleClickAllOrder () {
+      this.$router.push({name: 'Order', params: {status: 0}})
+    },
+    handleCilckOrderTypeItem (status) {
+      this.$router.push({name: 'Order', params: {status: status}})
+    }
   }
-
 }
 </script>
 

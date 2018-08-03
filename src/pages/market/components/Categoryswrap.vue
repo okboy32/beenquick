@@ -30,7 +30,7 @@ export default {
       this.getProducts(this.categorys[index].id)
     },
     getProducts (id) {
-      axios.get('http://localhost:8000/products/?pid=' + id).then((response) => {
+      axios.get('http://120.79.0.254/api/products/?pid=' + id).then((response) => {
         const products = response.data
         this.changeCurrentId(id)
         this.changeProducts(products)

@@ -1,11 +1,13 @@
 <template>
-  <div id="market">
-    <market-header></market-header>
-    <market-categoryswrap :categorys="categorys" @changeCurrentId="changeCurrentId"></market-categoryswrap>
-    <market-filter></market-filter>
-    <market-product-list :products="products[currentid]"></market-product-list>
-    <market-footer></market-footer>
-  </div>
+  <keep-alive>
+    <div id="market">
+      <market-header></market-header>
+      <market-categoryswrap :categorys="categorys" @changeCurrentId="changeCurrentId"></market-categoryswrap>
+      <market-filter></market-filter>
+      <market-product-list :products="products[currentid]"></market-product-list>
+      <market-footer></market-footer>
+    </div>
+  </keep-alive>
 </template>
 
 <script>
@@ -36,7 +38,7 @@ export default {
   },
   methods: {
     getCategorys () {
-      axios.get('http://localhost:8000/category/').then((reponse) => {
+      axios.get('http://120.79.0.254/api/category/').then((reponse) => {
         this.categorys = reponse.data
       }).catch((error) => {
         console.info(error)

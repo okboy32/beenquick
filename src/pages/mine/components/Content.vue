@@ -3,7 +3,7 @@
       <div class="contentier">
         <mine-order :order_type_list="order_type_list"></mine-order>
         <mine-table :item_list="function_list"></mine-table>
-        <button class="logoutBtn" @click="logout">推出当前帐号</button>
+        <button class="logoutBtn" @click="logout">退出当前帐号</button>
       </div>
     </div>
 </template>
@@ -12,6 +12,8 @@
 import BScroll from 'better-scroll'
 import MineOrder from './Order'
 import MineTable from './Table'
+import cookie from '../../../../static/js/cookie'
+import { mapState } from 'vuex'
 export default {
   name: 'Content',
   components: {
@@ -63,6 +65,7 @@ export default {
       }],
       order_type_list: [{
         name: '待付款',
+        status: 1,
         image: '../img/wait-pay.png',
         styles: {
           background: 'url(' + require('../img/wait-pay.png') + ') center 40% no-repeat',
@@ -70,6 +73,7 @@ export default {
         }
       }, {
         name: '待收货',
+        status: 2,
         image: '../img/wait-receive.png',
         styles: {
           background: 'url(' + require('../img/wait-receive.png') + ') center 40% no-repeat',
@@ -77,13 +81,15 @@ export default {
         }
       }, {
         name: '待评价',
+        status: 3,
         image: '../img/wait-commit.png',
         styles: {
           background: 'url(' + require('../img/wait-commit.png') + ') center 40% no-repeat',
           backgroundSize: 'auto 25%'
         }
       }, {
-        name: '售后',
+        name: '退款/售后',
+        status: 4,
         image: '../img/after-sale.png',
         styles: {
           background: 'url(' + require('../img/after-sale.png') + ') center 40% no-repeat',
@@ -93,12 +99,20 @@ export default {
     }
   },
   methods: {
+    ...mapState(['setUserInfo']),
     logout: function () {
       this.$router.push({ name: 'Login' })
+      cookie.delCookie('token')
+      cookie.delCookie('uid')
+      cookie.delCookie('username')
+      cookie.delCookie('mobile')
+      cookie.delCookie('level')
+      this.setUserInfo()
+      location.reload()
     }
   },
   mounted () {
-    this.scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper, {click: true})
   }
 }
 </script>

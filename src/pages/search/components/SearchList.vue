@@ -1,7 +1,7 @@
 <template>
     <div class="searchlist" ref="wrapper">
       <div class="coontent">
-        <div class="item" v-for="(item,index) of search_list" :key="index">
+        <div class="item" v-for="(item,index) of search_list" :key="index" @click="handleClickProduct(index)">
           <div class="img-wrap">
             <img class="item-img" :src="item.img"/>
           </div>
@@ -24,8 +24,18 @@ export default {
   props: {
     search_list: Array
   },
+  methods: {
+    handleClickProduct (index) {
+      console.info(this.search_list[index].id)
+      this.$router.push({
+        name: 'Detail',
+        params: {
+          id: this.search_list[index].id
+        }})
+    }
+  },
   mounted () {
-    this.scroll = new BScorll(this.$refs.wrapper)
+    this.scroll = new BScorll(this.$refs.wrapper, {click: true})
   }
 }
 </script>

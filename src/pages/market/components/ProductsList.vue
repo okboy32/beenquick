@@ -61,9 +61,9 @@ export default {
   right 0
   left 23%
   background white
-  padding-top 1.04rem
   .scroll-wrapper
     z-index 0
+    padding-top 1.04rem
     .product
       position relative
       width 96%
