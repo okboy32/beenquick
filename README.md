@@ -1,6 +1,7 @@
 # beenquick
 
 > A Vue.js project
+预览: 120.79.0.254
 
 ## Build Setup
 
